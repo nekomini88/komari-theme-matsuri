@@ -1,4 +1,8 @@
 import {
+  normalizeSceneTimeMode,
+  normalizeTimeOfDay,
+} from "./scene";
+import {
   ASSET_CURRENCIES,
   type Appearance,
   type AssetCurrency,
@@ -12,6 +16,8 @@ const DEFAULT_THEME_SETTINGS: Required<
     | "assetCurrency"
     | "enableBlur"
     | "backgroundImage"
+    | "sceneTimeMode"
+    | "sceneFixedTime"
     | "showStatsBar"
     | "showOnline"
     | "showAssets"
@@ -27,6 +33,8 @@ const DEFAULT_THEME_SETTINGS: Required<
   assetCurrency: "CNY",
   enableBlur: true,
   backgroundImage: "",
+  sceneTimeMode: "auto",
+  sceneFixedTime: "night",
   showStatsBar: true,
   showOnline: true,
   showAssets: true,
@@ -57,6 +65,8 @@ export function mergeThemeSettings(
     backgroundImage: String(
       src.backgroundImage ?? DEFAULT_THEME_SETTINGS.backgroundImage
     ),
+    sceneTimeMode: normalizeSceneTimeMode(src.sceneTimeMode),
+    sceneFixedTime: normalizeTimeOfDay(src.sceneFixedTime),
     showStatsBar: bool(src.showStatsBar, DEFAULT_THEME_SETTINGS.showStatsBar),
     showOnline: bool(src.showOnline, DEFAULT_THEME_SETTINGS.showOnline),
     showAssets: bool(src.showAssets, DEFAULT_THEME_SETTINGS.showAssets),

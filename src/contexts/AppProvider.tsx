@@ -29,6 +29,7 @@ import {
   mergeThemeSettings,
   resolveBackground,
 } from "@/lib/theme-settings";
+import { resolveSceneTime, sceneUrlFor } from "@/lib/scene";
 import { getLiveWebSocket } from "@/lib/websocket";
 import type {
   Appearance,
@@ -125,6 +126,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [route, setRoute] = useState<Route>({ name: "home" });
   const [appearance, setAppearanceState] = useState<Appearance>("system");
   const [systemDark, setSystemDark] = useState(false);
+  // 时段每 60s 重算：跨过档位边界时自动换街景，访客无需刷新。
+  const [clockNow, setClockNow] = useState(() => Date.now());
   const [exchangeRates, setExchangeRates] = useState<ExchangeRates>(
     FALLBACK_EXCHANGE_RATES
   );
@@ -259,7 +262,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     root.classList.toggle("dark", resolvedTheme === "dark");
     root.style.colorScheme = resolvedTheme;
 
-    const bg = resolveBackground(settings.backgroundImage, resolvedTheme === "dark");
+    // 背景优先级：设置里填的自定义图 > 内置祭典街景（按时段自动切换）。
+    const sceneTime = resolveSceneTime(settings.sceneTimeMode, settings.sceneFixedTime, clockNow);
+    const custom = settings.backgroundImage.trim();
+    const bg = custom
+      ? resolveBackground(custom, resolvedTheme === "dark")
+      : sceneUrlFor(sceneTime);
     const el = document.getElementById("theme-background");
     if (el) {
       if (bg) {
@@ -271,8 +279,21 @@ export function AppProvider({ children }: { children: ReactNode }) {
       }
     }
 
+    root.dataset.time = sceneTime;
     root.dataset.blur = settings.enableBlur ? "on" : "off";
-  }, [resolvedTheme, settings.backgroundImage, settings.enableBlur]);
+  }, [
+    resolvedTheme,
+    settings.backgroundImage,
+    settings.enableBlur,
+    settings.sceneTimeMode,
+    settings.sceneFixedTime,
+    clockNow,
+  ]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setClockNow(Date.now()), 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   // Komari's admin node list stores its drag-and-drop order in `weight`.
   const nodes = useMemo(

@@ -90,7 +90,7 @@ async function main() {
 
   const version = getVersion();
   const hash = getCommitHash();
-  const zipName = `komari-theme-glass-v${version}-${hash}.zip`;
+  const zipName = `komari-theme-matsuri-v${version}-${hash}.zip`;
   mkdirSync(releaseDir, { recursive: true });
   const outputPath = resolve(releaseDir, zipName);
 

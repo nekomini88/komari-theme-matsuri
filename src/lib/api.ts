@@ -1,3 +1,4 @@
+import { calibrateServerClock } from "./scene";
 import { convertNodeStatsToLiveStatus } from "./converters";
 import type {
   HistoryRecord,
@@ -34,6 +35,8 @@ async function callRpc<T>(
     credentials: "same-origin",
     cache: "no-store",
   });
+  // 顺手用响应头校准服务端时钟：场景时段按服务端 UTC+8 算，而不是访客本地钟。
+  calibrateServerClock(res);
   if (!res.ok) {
     throw new Error(`请求失败 (${res.status})`);
   }

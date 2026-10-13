@@ -1,15 +1,15 @@
 {
-  "name": "Komari Glass",
-  "short": "Glass",
-  "description": "一个轻量的Komari主题。",
-  "version": "1.2.7",
-  "author": "mengying",
-  "url": "https://github.com/imengying/Komari-Glass",
+  "name": "Komari-Matsuri",
+  "short": "Komari-Matsuri",
+  "description": "夏夜祭典主题 · 夜靛底 + 提灯橙 + 花火金 · 神社参道夜市街景 + 玻璃面板（基于 Komari Glass 改造）",
+  "version": "1.0.0",
+  "author": "Neko（基于 mengying 的 Komari Glass 改造 · MIT）",
+  "url": "https://github.com/nekomini88/komari-theme-matsuri",
   "preview": "dist/preview.png",
   "configuration": {
     "type": "managed",
     "icon": "Bolt",
-    "name": "主题设置",
+    "name": "Komari-Matsuri 设置",
     "data": [
       {
         "name": {
@@ -194,6 +194,22 @@
           "zh-CN": "总览条显示实时网速",
           "en": "Show realtime speed"
         }
+      },
+      {
+        "name": "场景世界（时段）",
+        "key": "sceneTimeMode",
+        "type": "select",
+        "default": "auto",
+        "options": "auto,fixed",
+        "help": "auto = 跟随服务端时间（UTC+8）自动切换；fixed = 固定为下面选定的时段"
+      },
+      {
+        "name": "固定时段",
+        "key": "sceneFixedTime",
+        "type": "select",
+        "default": "night",
+        "options": "dusk,night,deepnight",
+        "help": "仅当「时间来源」选 fixed 时生效：dusk=黄昏（灯初上）、night=夜（最盛）、deepnight=深夜（散场后）"
       }
     ]
   }

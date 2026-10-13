@@ -5,6 +5,10 @@ export interface ThemeSettings {
   assetCurrency?: AssetCurrency;
   enableBlur?: boolean;
   backgroundImage?: string;
+  /** 场景时段：auto=跟随服务端时钟自动切换，fixed=固定为选定档 */
+  sceneTimeMode?: "auto" | "fixed";
+  /** 固定时段（仅 sceneTimeMode=fixed 时生效） */
+  sceneFixedTime?: "dusk" | "night" | "deepnight";
   showStatsBar?: boolean;
   showOnline?: boolean;
   showAssets?: boolean;

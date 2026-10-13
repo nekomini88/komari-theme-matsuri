@@ -1,8 +1,8 @@
 {
-  "name": "komari-theme-glass",
-  "version": "1.2.7",
+  "name": "komari-theme-matsuri",
+  "version": "1.0.0",
   "private": true,
-  "description": "一个轻量的Komari主题。",
+  "description": "夏夜祭典主题 · 夜靛底 + 提灯橙 + 花火金 · 神社参道夜市街景 + 玻璃面板（基于 Komari Glass 改造）",
   "homepage": "https://github.com/imengying/Komari-Glass",
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     "build": "bun run typecheck && next build && bun scripts/package-theme.ts",
     "build:only": "next build",
     "typecheck": "next typegen && tsc --noEmit",
-    "package": "bun scripts/package-theme.ts"
+    "package": "bun scripts/package-theme.ts",
+    "test": "vitest run"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -35,7 +36,8 @@
     "@types/react-dom": "^19.3.0",
     "archiver": "^8.0.0",
     "tailwindcss": "^4.3.3",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
   },
   "overrides": {
     "nanoid": "^3.3.18",

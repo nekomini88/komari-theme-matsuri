@@ -1,6 +1,6 @@
-# Komari Glass
+# Komari-Matsuri
 
-![Komari Glass 预览](public/preview.png)
+![Komari-Matsuri 预览](public/preview.png)
 
 技术栈：`bun` + `TypeScript` + `React` + `Next.js`。
 
@@ -25,14 +25,14 @@ bun run build
 会生成：
 
 - `dist/` — 静态站点（含 `index.html`）
-- `release/komari-theme-glass-v*.zip` — 可直接上传到 Komari 的主题包
+- `release/komari-theme-matsuri-v*.zip` — 可直接上传到 Komari 的主题包
 
 在 Komari 后台：**主题 → 上传 ZIP → 启用**。
 
 ### ZIP 结构
 
 ```
-komari-theme-glass-xxx.zip
+komari-theme-matsuri-xxx.zip
 ├── komari-theme.json
 ├── preview.png
 └── dist/

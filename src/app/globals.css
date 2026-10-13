@@ -3,66 +3,68 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #edf1f3;
-  --foreground: #11191f;
-  --card-solid: #f8fafb;
-  --card-foreground: #11191f;
-  --primary: #0f766e;
-  --primary-foreground: #ffffff;
-  --muted: #e7ecee;
-  --muted-foreground: #59666f;
-  --destructive: #dc3f4f;
-  --warning: #c77a10;
-  --success: #078a63;
-  --info: #2563b9;
-  --selection: #0f766e;
-  --border: rgb(83 104 116 / 0.18);
-  --ring: #0f766e;
-  --signal-1: #059669;
-  --signal-2: #4ade80;
-  --signal-3: #a3e635;
-  --signal-4: #facc15;
-  --signal-5: #f43f5e;
-  --glass-shadow: 0 10px 32px rgb(31 48 58 / 0.09),
-    inset 0 1px 0 rgb(255 255 255 / 0.58);
-  --glass-control: rgb(242 246 247 / 0.78);
-  --node-card-bg: rgb(241 245 249 / 0.74);
-  --node-card-hover: rgb(248 250 252 / 0.8);
-  --node-card-border: rgb(226 232 240 / 0.68);
-  --node-card-shadow: 0 8px 28px rgb(15 23 42 / 0.18);
-  --node-data-bg: rgb(100 116 139 / 0.055);
-  --node-offline-bg: rgb(255 255 255 / 0.2);
+  /* 黄昏档（原上游亮色档）：整块重写，保证与本主题其它档同体系。
+     底/面为暗，字/强调为暖亮 —— 与深夜档一致，只把夜色调得更暖更浅一档。 */
+  --background: #1a1420;
+  --foreground: #fdf6ea;
+  --card-solid: #211a29;
+  --card-foreground: #fdf6ea;
+  --primary: #ff9a3c;
+  --primary-foreground: #241000;
+  --muted: #2a2231;
+  --muted-foreground: #c3b2a0;
+  --destructive: #e8544d;
+  --warning: #ffd479;
+  --success: #7fd4a2;
+  --info: #7faed9;
+  --selection: #ffb35c;
+  --border: rgb(255 200 140 / 0.16);
+  --ring: #ff9a3c;
+  --signal-1: #ff9a3c;
+  --signal-2: #ffd479;
+  --signal-3: #e8544d;
+  --signal-4: #7fd4a2;
+  --signal-5: #a99bf0;
+  --glass-shadow: 0 10px 32px rgb(0 0 0 / 0.34),
+    inset 0 1px 0 rgb(255 190 120 / 0.10);
+  --glass-control: rgb(38 28 34 / 0.82);
+  --node-card-bg: rgb(38 28 32 / 0.74);
+  --node-card-hover: rgb(46 34 38 / 0.82);
+  --node-card-border: rgb(255 200 140 / 0.20);
+  --node-card-shadow: 0 8px 28px rgb(0 0 0 / 0.42);
+  --node-data-bg: rgb(255 200 140 / 0.07);
+  --node-offline-bg: rgb(0 0 0 / 0.22);
 }
 
 .dark {
-  --background: #0d1011;
-  --foreground: #f3f6f5;
-  --card-solid: #171b1c;
-  --card-foreground: #f3f6f5;
-  --primary: #39c79a;
-  --primary-foreground: #07130f;
-  --muted: #242a2b;
-  --muted-foreground: #9fa9a7;
-  --destructive: #fb7185;
-  --warning: #f0ad3d;
-  --success: #38c895;
-  --info: #69a7e8;
-  --selection: #54d6ab;
-  --border: rgb(218 234 230 / 0.12);
-  --ring: #54d6ab;
-  --signal-1: #10b981;
-  --signal-2: #4ade80;
-  --signal-3: #a3e635;
-  --signal-4: #fde047;
-  --signal-5: #fb7185;
+  --background: #0b0f18;
+  --foreground: #fdf6ea;
+  --card-solid: #191320;
+  --card-foreground: #fdf6ea;
+  --primary: #ff9a3c;
+  --primary-foreground: #241000;
+  --muted: #241e26;
+  --muted-foreground: #c3b2a0;
+  --destructive: #e8544d;
+  --warning: #ffd479;
+  --success: #7fd4a2;
+  --info: #7faed9;
+  --selection: #ffb35c;
+  --border: rgb(255 200 140 / 0.12);
+  --ring: #ffb35c;
+  --signal-1: #ff9a3c;
+  --signal-2: #ffd479;
+  --signal-3: #e8544d;
+  --signal-4: #7fd4a2;
+  --signal-5: #e8544d;
   --glass-shadow: 0 12px 36px rgb(0 0 0 / 0.28),
-    inset 0 1px 0 rgb(255 255 255 / 0.035);
-  --glass-control: rgb(30 36 37 / 0.82);
-  --node-card-bg: rgb(10 14 22 / 0.82);
-  --node-card-hover: rgb(10 14 22 / 0.9);
-  --node-card-border: rgb(255 255 255 / 0.18);
+    inset 0 1px 0 rgb(255 190 120 / 0.035);
+  --glass-control: rgb(32 26 24 / 0.82);
+  --node-card-bg: rgb(22 17 26 / 0.82);
+  --node-card-hover: rgb(22 17 26 / 0.9);
+  --node-card-border: rgb(255 190 120 / 0.18);
   --node-card-shadow: 0 8px 30px rgb(0 0 0 / 0.48);
-  --node-data-bg: rgb(148 163 184 / 0.065);
+  --node-data-bg: rgb(255 200 140 / 0.065);
   --node-offline-bg: rgb(0 0 0 / 0.2);
 }
 
@@ -223,7 +225,7 @@ html[data-blur="off"] .glass-panel {
 
 .overview-strip {
   box-shadow: 0 8px 28px rgb(31 48 58 / 0.07),
-    inset 0 1px 0 rgb(255 255 255 / 0.45);
+    inset 0 1px 0 rgb(255 190 120 / 0.45);
 }
 
 .dark .overview-strip {
@@ -267,7 +269,7 @@ html[data-theme-switching="true"] .node-card {
   z-index: 1;
   border-color: color-mix(in srgb, var(--foreground) 24%, var(--node-card-border));
   background: var(--node-card-hover);
-  box-shadow: 0 12px 38px rgb(15 23 42 / 0.2);
+  box-shadow: 0 12px 38px rgb(0 0 0 / 0.2);
 }
 
 .dark .node-card:hover {
@@ -286,7 +288,7 @@ html[data-theme-switching="true"] .node-card {
 
 .node-card-offline:hover {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 30%, transparent),
-    0 12px 38px rgb(15 23 42 / 0.2);
+    0 12px 38px rgb(0 0 0 / 0.2);
 }
 
 .dark .node-card-offline:hover {
